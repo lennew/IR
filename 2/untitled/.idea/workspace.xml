@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83ede9ab-263e-4572-9350-c8224bedb58d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Exercise2.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Z1qY2PcuqVdqP3XV0BNnU8yASe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583741752158" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tika-app-1.17.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\student\Desktop\untitled" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Exercise2">
+    <configuration name="Exercise1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercise1" />
+      <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercise2" />
+      <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="untitled" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Exercise1" />
+      <item itemvalue="Application.Exercise2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Exercise2" />
+        <item itemvalue="Application.Exercise1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83ede9ab-263e-4572-9350-c8224bedb58d" name="Default Changelist" comment="" />
+      <created>1583738467446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583738467446</updated>
+      <workItem from="1583738480928" duration="3130000" />
+      <workItem from="1584016992546" duration="5847000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="618" y="300" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584017002574">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state x="618" y="300" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.814@0.0.1536.814" timestamp="1584017002574" />
+    <state x="599" y="262" key="FileChooserDialogImpl" timestamp="1584017152861">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state x="599" y="262" key="FileChooserDialogImpl/0.0.1536.814@0.0.1536.814" timestamp="1584017152861" />
+    <state width="1492" height="204" key="GridCell.Tab.0.bottom" timestamp="1584022524975">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.bottom/0.0.1536.814@0.0.1536.814" timestamp="1584022524975" />
+    <state width="1492" height="204" key="GridCell.Tab.0.center" timestamp="1584022524975">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.center/0.0.1536.814@0.0.1536.814" timestamp="1584022524975" />
+    <state width="1492" height="204" key="GridCell.Tab.0.left" timestamp="1584022524974">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.left/0.0.1536.814@0.0.1536.814" timestamp="1584022524974" />
+    <state width="1492" height="204" key="GridCell.Tab.0.right" timestamp="1584022524975">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.right/0.0.1536.814@0.0.1536.814" timestamp="1584022524975" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1584017157587">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.814@0.0.1536.814" timestamp="1584017157587" />
+    <state x="431" y="135" width="672" height="678" key="search.everywhere.popup" timestamp="1584017481647">
+      <screen x="0" y="0" width="1536" height="814" />
+    </state>
+    <state x="431" y="135" width="672" height="678" key="search.everywhere.popup/0.0.1536.814@0.0.1536.814" timestamp="1584017481647" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>metadata.getValues(&quot;phonenumbers&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>metadata.getValues(&quot;phonenumbers&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>document.getElementsByTagName(&quot;Phone&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>
