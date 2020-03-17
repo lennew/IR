@@ -15,10 +15,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +23,16 @@ import java.util.logging.Logger;
 public class MovieReviewStatictics
 {
     private static final String DOCUMENTS_PATH = "movies/";
+    public static String LANG_DETECT_MODEL = "models/langdetect-183.bin";
+    public static String TOKENIZER_MODEL = "models/en-token.bin";
+    public static String SENTENCE_MODEL = "models/en-sent.bin";
+    public static String POS_MODEL = "models/en-pos-maxent.bin";
+    public static String CHUNKER_MODEL = "models/en-chunker.bin";
+    public static String LEMMATIZER_DICT = "models/en-lemmatizer.dict";
+    public static String NAME_MODEL = "models/en-ner-person.bin";
+    public static String LOCATION_MODEL = "models/en-ner-location.bin";
+    public static String ORGANIZATION_MODEL = "models/en-ner-organization.bin";
+
     private int _verbCount = 0;
     private int _nounCount = 0;
     private int _adjectiveCount = 0;
@@ -83,33 +90,64 @@ public class MovieReviewStatictics
 
     private void initModelsStemmerLemmatizer()
     {
-        //try
-        //{
-        // TODO: load all OpenNLP models (+Porter stemmer + lemmatizer)
-        // from files (use class variables)
+        try
+        {
+        //TODO: load all OpenNLP models (+Porter stemmer + lemmatizer)
+        //from files (use class variables)
+            File modelFile = new File(SENTENCE_MODEL);
+            _sentenceModel = new SentenceModel(modelFile);
 
-        //} catch (IOException ex)
-        //{
-        //    Logger.getLogger(MovieReviewStatictics.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+            modelFile = new File(TOKENIZER_MODEL);
+            _tokenizerModel = new TokenizerModel(modelFile);
+
+            modelFile = new File(LEMMATIZER_DICT);
+            _lemmatizer = new DictionaryLemmatizer(modelFile);
+
+            _stemmer = new PorterStemmer();
+
+            modelFile = new File(POS_MODEL);
+            _posModel = new POSModel(modelFile);
+
+            modelFile = new File(NAME_MODEL);
+            _peopleModel = new TokenNameFinderModel(modelFile);
+
+            modelFile = new File(LOCATION_MODEL);
+            _placesModel = new TokenNameFinderModel(modelFile);
+
+            modelFile = new File(ORGANIZATION_MODEL);
+            _organizationsModel = new TokenNameFinderModel(modelFile);
+
+
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MovieReviewStatictics.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void processFile(String text)
     {
+        String[] textList = text.split(" ");
         // TODO: process the text to find the following statistics:
         // For each movie derive:
+
         //    - number of sentences
         int noSentences = 0;
+
         //    - number of tokens
         int noTokens = 0;
+
         //    - number of (unique) stemmed forms
         int noStemmed = 0;
+
         //    - number of (unique) words from a dictionary (lemmatization)
         int noWords = 0;
+
         //    -  people
         Span people[] = new Span[] { };
+
         //    - locations
         Span locations[] = new Span[] { };
+
         //    - organisations
         Span organisations[] = new Span[] { };
 
@@ -123,30 +161,57 @@ public class MovieReviewStatictics
         // ------------------------------------------------------------------
 
         // TODO derive sentences (update noSentences variable)
+        SentenceDetectorME sentenceDetectorME = new SentenceDetectorME(_sentenceModel);
+        noSentences = sentenceDetectorME.sentDetect(text).length;
 
 
         // TODO derive tokens and POS tags from text
         // (update noTokens and _totalTokensCount)
+        TokenizerME tokenizerME = new TokenizerME(_tokenizerModel);
+        String[] tokens = tokenizerME.tokenize(text);
+        noTokens = tokens.length;
+        _totalTokensCount += noTokens;
+
+        POSTaggerME posTaggerME = new POSTaggerME(_posModel);
+        String[] posTags = posTaggerME.tag(tokens);
 
         // TODO perform stemming (use derived tokens)
         // (update noStemmed)
-        //Set <String> stems = new HashSet <>();
+        Set<String> stems = new HashSet<>();
+        for (String token: tokens) stems.add(_stemmer.stem(token));
+        noStemmed = stems.size();
 
-        //for (String token : tokens)
-        //{
-            // use .toLowerCase().replaceAll("[^a-z0-9]", ""); thereafter, ignore "" tokens
-        //}
-
+        for (String token : tokens)
+        {
+            token.toLowerCase().replaceAll("[^a-z0-9]", "");
+        }
 
         // TODO perform lemmatization (use derived tokens)
         // (remove "O" from results - non-dictionary forms, update noWords)
-
+        Set<String> wordsFromDictionary = new HashSet<String>(Arrays.asList(_lemmatizer.lemmatize(tokens, posTags)));
+        wordsFromDictionary.remove("O");
+        noWords = wordsFromDictionary.size();
 
         // TODO derive people, locations, organisations (use tokens),
         // (update people, locations, organisations lists).
+        NameFinderME nameFinderME = new NameFinderME(_peopleModel);
+        people = nameFinderME.find(tokens);
+
+        nameFinderME = new NameFinderME(_placesModel);
+        locations = nameFinderME.find(tokens);
+
+        nameFinderME = new NameFinderME(_organizationsModel);
+        organisations = nameFinderME.find(tokens);
 
         // TODO update overall statistics - use tags and check first letters
         // (see https://www.clips.uantwerpen.be/pages/mbsp-tags; first letter = "V" = verb?)
+
+        for (String s: posTags) {
+            if (s.startsWith("V")) _verbCount++;
+            else if (s.startsWith("N")) _nounCount++;
+            else if (s.startsWith("J")) _adjectiveCount++;
+            else if (s.startsWith("R")) _adverbCount++;
+        }
 
         // ------------------------------------------------------------------
 
@@ -155,9 +220,9 @@ public class MovieReviewStatictics
         saveResults("Stemmed forms (unique)", noStemmed);
         saveResults("Words from a dictionary (unique)", noWords);
 
-        saveNamedEntities("People", people, new String[] { });
-        saveNamedEntities("Locations", locations, new String[] { });
-        saveNamedEntities("Organizations", organisations, new String[] { });
+        saveNamedEntities("People", people, tokens);
+        saveNamedEntities("Locations", locations, tokens);
+        saveNamedEntities("Organizations", organisations, tokens);
     }
 
 
