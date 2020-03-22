@@ -178,13 +178,12 @@ public class MovieReviewStatictics
         // TODO perform stemming (use derived tokens)
         // (update noStemmed)
         Set<String> stems = new HashSet<>();
-        for (String token: tokens) stems.add(_stemmer.stem(token));
-        noStemmed = stems.size();
 
-        for (String token : tokens)
-        {
-            token.toLowerCase().replaceAll("[^a-z0-9]", "");
+        for (String token : tokens) {
+            String stem = _stemmer.stem(token).toLowerCase().replaceAll("[^a-z0-9]", "");
+            if (!stem.equals("")) stems.add(stem);
         }
+        noStemmed=stems.size();
 
         // TODO perform lemmatization (use derived tokens)
         // (remove "O" from results - non-dictionary forms, update noWords)
