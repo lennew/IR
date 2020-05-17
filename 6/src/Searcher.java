@@ -34,7 +34,7 @@ public class Searcher
         // TERM QUERY
         // A Query that matches documents containing a term.
         // This may be combined with other terms with a BooleanQuery.
-        // TODO seek for documents that contain word mammal - K.DONE - normalize constant good??
+        // TODO seek for documents that contain word mammal - DONE
         // as you may notice, this word is not normalized (but is should be normalized
         // in the same way as all documents were normalized when constructing the index.
         // For that reason you can use analyzer object (utf8TOString()!).
@@ -52,7 +52,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO Repeat the previous step for a word "bird". - K.DONE - SAME AS ABOVE
+        // TODO Repeat the previous step for a word "bird". - DONE
         // Compare the results for "mammal" and "bird".
         String queryBird = "bird";
         TermQuery tq2;
@@ -65,7 +65,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO now, we seek for documents that contain "mammal" or "bird". - K.DONE
+        // TODO now, we seek for documents that contain "mammal" or "bird". - DONE
         // Construct two clauses: BooleanClause (use BooleanClause.Occur to set a proper flag).
         // The first concerns tq1 ("mammal") and the second concerns ("bird").
         // To construct BooleanQuery, Use static methods of BooleanQuery.Builder().
@@ -88,7 +88,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO now, your task is to find all documents which size is smaller than 1000bytes. - K.DONE
+        // TODO now, your task is to find all documents which size is smaller than 1000bytes. - DONE
         // For this reason, construct Range query.
         // Use IntPoint.newRangeQuery.
         {
@@ -100,7 +100,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO let's find all documents which name starts with "ant". - K.DONE
+        // TODO let's find all documents which name starts with "ant". - DONE
         // For this reason, construct PrefixQuery.
         {
             // --------------------------------------
@@ -111,7 +111,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO let's build a wildcard query". - K.DONE
+        // TODO let's build a wildcard query". - DONE
         // Construct a WildcardQuery object. Look for documents
         // which contain a term "eat?" "?" stand for any letter (* for a sequence of letters).
         {
@@ -122,7 +122,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO build a fuzzy query for a word "mamml" (use FuzzyQuerry). - K.DONE
+        // TODO build a fuzzy query for a word "mamml" (use FuzzyQuerry). - DONE
         // Find all documents that contain words which are similar to "mamml".
         // Which documents have been found?
         {
@@ -134,7 +134,7 @@ public class Searcher
             // --------------------------------------
         }
 
-        // TODO now, use QueryParser to parse human-entered query strings - K.DONE - NOT SURE IF OK
+        // TODO now, use QueryParser to parse human-entered query strings - DONE
         // and generate query object.
         // - use AND, OR , NOT, (, ), + (must), and - (must not) to construct boolean queries
         // - use * and ? to contstruct wildcard queries
@@ -175,7 +175,7 @@ public class Searcher
 
     private static void printResultsForQuery(IndexSearcher indexSearcher, Query q)
     {
-        // TODO finish this method - K.DONE - CONTENT MUST BE THERE!
+        // TODO finish this method - DONE
         // - use indexSearcher to search for documents that
         // are relevant according to the query q
         // - Get TopDocs object (number of derived documents = Constant.top_docs)

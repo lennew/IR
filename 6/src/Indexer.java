@@ -36,11 +36,11 @@ public class Indexer
         {
         }
 
-        // LOAD HTML DOCUMENTS (TODO - K.DONE)
+        // LOAD HTML DOCUMENTS (TODO - DONE)
         ArrayList<Document> documents = getHTMLDocuments();
 
 
-        // CONSTRUCT INDEX (TODO - K.DONE)
+        // CONSTRUCT INDEX (TODO - DONE)
         // - Firstly, create Analyzer object (StandardAnalyzer).
         //   (An Analyzer builds TokenStreams, which analyze text.
         //   It thus represents a policy for extracting index terms from text.)
@@ -76,7 +76,7 @@ public class Indexer
             for (int id = 0; id < files.length; id++)
             {
                 System.out.println("Loading "+ files[id].getName());
-                // TODO finish getHTML document - K.DONE
+                // TODO finish getHTML document - DONE
                 htmls.add(getHTMLDocument("pages/" + files[id].getName(), id));
             }
             return htmls;
@@ -122,7 +122,7 @@ public class Indexer
         // For the following, it is suggested to use TextField and StoredField
 
 
-        // TODO create a field that is stored but not indexed - K.DONE
+        // TODO create a field that is stored but not indexed - DONE
         // and contains document's id
         // IMPORTANT NOTE: use static fields of Constants class to get
         // the keys of the fields (e.g., Constants.id) !
@@ -130,7 +130,7 @@ public class Indexer
         StoredField idField = new StoredField(Constants.id, id);
         // ----------------------------------
 
-        // TODO create a field that is indexed but not stored - K.DONE
+        // TODO create a field that is indexed but not stored - DONE
         // and contains document's content
         // for this purpose, extract text from the document
         // using Tika ( use getTextFromHTMLFile() <- this method is finished )
@@ -138,24 +138,24 @@ public class Indexer
        TextField contentField = new TextField(Constants.content, getTextFromHTMLFile(file), Field.Store.NO);
         // ----------------------------------
 
-        // TODO create a field that is stored and indexed - K.DONE
+        // TODO create a field that is stored and indexed - DONE
         // and contains file name
         // ----------------------------------
        TextField fileNameField = new TextField(Constants.filename, file.getName(), Field.Store.YES);
         // ----------------------------------
 
-        // TODO create an INT field (IntPoint) that is indexed  - K.DONE BUT NOT SURE ABOUT KEYS (Constants...)
+        // TODO create an INT field (IntPoint) that is indexed  - DONE
         // and contains file size (bytes, .length())
         // ----------------------------------
         IntPoint fileSizeIntField = new IntPoint(Constants.filesize_int, (int) file.length());
         // ----------------------------------
-        // //TODO IntPoint is not stored but we want to a file size -K.DONE SAME AS ABOVE
+        // //TODO IntPoint is not stored but we want to a file size - DONE
         // ... so add another field (StoredField) that stores file size
         // ----------------------------------
         StoredField fileSizeField = new StoredField(Constants.filesize, file.length());
         // ----------------------------------
 
-        // TODO add fields to the document object - K.DONE
+        // TODO add fields to the document object - DONE
         // ----------------------------------
         document.add(idField);
         document.add(contentField);
